@@ -1,18 +1,9 @@
 language: java
-
 sudo: false
-
 jdk:
   - oraclejdk8
-  
 before_script: cd apiconnector
-
-addons:
-  sonarcloud:
-    organization: "mwever-github"
-    
-script: mvn clean verify -P sonar -Dsonar.login=$SONAR_LOGIN_TOKEN
-
+script: mvn clean verify
 deploy:
   provider: pages
   skip_cleanup: true
@@ -20,7 +11,5 @@ deploy:
   on:
     branch: master
   local_dir: apiconnector/target/apidocs
-  
 name: Minion
-
 after_success: mvn jacoco:report coveralls:report
