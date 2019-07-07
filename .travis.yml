@@ -11,7 +11,7 @@ addons:
   sonarcloud:
     organization: "mwever-github"
     
-script: mvn clean verify
+script: mvn clean verify -P sonar -Dsonar.login=$SONAR_LOGIN_TOKEN
 
 deploy:
   provider: pages
