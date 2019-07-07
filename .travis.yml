@@ -7,6 +7,10 @@ jdk:
   
 before_script: cd apiconnector
 
+addons:
+  sonarcloud:
+    organization: "mwever-github"
+    
 script: mvn clean verify
 
 deploy:
